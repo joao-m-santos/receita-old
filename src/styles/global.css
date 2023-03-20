@@ -1,0 +1,19 @@
+@import "./reset.css";
+@import "./fonts.css";
+
+:root {
+  --dark-blue: #2e294e;
+  --red: #ec5760;
+  --light-gray: #f3f6f9;
+  --dark-green: #448f53;
+
+  --title-font-family: Raleway;
+  --body-font-family: Inter;
+}
+
+html {
+  background-color: var(--light-gray);
+  color: var(--light-gray);
+  font-family: var(--body-font-family), system-ui, sans-serif;
+  font-size: 16px;
+}
