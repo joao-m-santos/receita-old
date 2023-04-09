@@ -12,6 +12,6 @@ You can use the template file `src/content/recipe.template.mdx` as a base for yo
 
 Finally, submit a PR with your recipe files.
 
---
+---
 
 Built with ❤ by [Joao](https://joaosantos.dev/)
