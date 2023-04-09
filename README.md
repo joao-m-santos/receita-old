@@ -4,9 +4,9 @@ A simple recipe database website with mine & friends' delicous recipes!
 
 This website is built with [Astro](https://astro.build/).
 
-## Uploading recipes
+## Submitting recipes
 
-To upload a new recipe, create a new [MDX](https://mdxjs.com/) file under `src/content/recipes/`. The filename will be the URL for the recipe. Additionally, you must add a `.png` image file to `public/assets/` with the same filename as the recipe file.
+To submit a new recipe, create a new [MDX](https://mdxjs.com/) file under `src/content/recipes/`. The filename will be the URL for the recipe. Additionally, you must add a `.png` image file to `public/assets/` with the same filename as the recipe file.
 
 You can use the template file `src/recipe.template.mdx` as a base for your new recipe.
 

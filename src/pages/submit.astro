@@ -1,0 +1,37 @@
+---
+import Layout from '@layouts/Layout.astro';
+import config from '../config.json';
+---
+
+<Layout title="Submit recipe">
+  <h2>Submit a recipe</h2>
+
+  <p>Recipes are fetched from the website's code repo.</p>
+
+  <p>
+    To submit a new recipe, you must push a Pull Request. Create a new <a
+      class="link"
+      href="https://mdxjs.com/"
+      target="_blank">MDX</a
+    > file under <code>src/content/recipes/</code>. The filename will be the URL
+    for the recipe. Additionally, you must add a <code>.png</code> image file to
+    <code>public/assets/</code> with the same filename as the recipe file.
+  </p>
+  <p>
+    You can use the template file <code>src/recipe.template.mdx</code> as a base
+    for your new recipe.
+  </p>
+
+  <p class="button-wrapper">
+    <a class="button" href={config.repoUrl} target="_blank"
+      >Go to GitHub repository</a
+    >
+  </p>
+</Layout>
+
+<style>
+  .button-wrapper {
+    text-align: center;
+    margin-top: 3rem;
+  }
+</style>
