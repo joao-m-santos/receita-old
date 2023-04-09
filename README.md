@@ -1,6 +1,6 @@
 # Receita
 
-A simple recipe database website with mine & friends' delicous recipes!
+A simple recipe database website with mine & friends' delicious recipes!
 
 This website is built with [Astro](https://astro.build/).
 
@@ -11,6 +11,13 @@ To submit a new recipe, create a new [MDX](https://mdxjs.com/) file under `src/c
 You can use the template file `src/recipe.template.mdx` as a base for your new recipe.
 
 Finally, submit a PR with your recipe files.
+
+## To-do
+
+- [ ] Responsiveness
+- [ ] Search
+- [ ] Add more tags
+- [ ] Automatic timestamps
 
 ---
 
