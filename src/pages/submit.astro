@@ -13,25 +13,86 @@ import config from '../config.json';
       class="link"
       href="https://mdxjs.com/"
       target="_blank">MDX</a
-    > file under <code>src/content/recipes/</code>. The filename will be the URL
-    for the recipe. Additionally, you must add a <code>.png</code> image file to
+    > file under <code>src/content/recipes/</code>. The filename will be the URL for the recipe. Additionally,
+    you must add a <code>.png</code> image file to
     <code>public/assets/</code> with the same filename as the recipe file.
   </p>
   <p>
-    You can use the template file <code>src/recipe.template.mdx</code> as a base
-    for your new recipe.
+    You can use the template file <code>src/recipe.template.mdx</code> as a base for your new recipe.
   </p>
 
   <p class="button-wrapper">
-    <a class="button" href={config.repoUrl} target="_blank"
-      >Go to GitHub repository</a
-    >
+    <a class="button" href={config.repoUrl} target="_blank">Go to GitHub repository</a>
   </p>
+
+  <p class="button-wrapper">
+    <span id="show-step-by-step" class="link">Show step-by-step</span>
+  </p>
+
+  <div id="step-by-step-container" style="display: none">
+    <ol class="step-list">
+      <li>
+        Clone the repository
+        <pre><code>$ git clone git@github.com:joao-m-santos/receita.git</code></pre>
+      </li>
+      <li>
+        Create a new branch and switch to it
+        <pre><code>$ git checkout -b my-new-recipe</code></pre>
+      </li>
+      <li>
+        Copy the recipe template and rename it to your recipe
+        <pre><code>$ cp src/recipe.template.mdx src/content/recipes/my-new-recipe.mdx</code></pre>
+      </li>
+      <li>Edit the file with your recipe ingredients and steps, keeping the template structure</li>
+      <li>
+        Add a picture with the same name as your recipe file as a <code>.png</code> file to the <code
+          >public/assets</code
+        > folder
+      </li>
+      <li>
+        Stage your files
+        <pre><code>$ git add public/assets/my-new-recipe.png src/content/recipes/my-new-recipe.mdx</code></pre>
+      </li>
+      <li>
+        Commit your files
+        <pre><code>$ git commit -m "New recipe: My new recipe"</code></pre>
+      </li>
+      <li>
+        Push your branch
+        <pre><code>$ git push -u origin my-new-recipe</code></pre>
+      </li>
+      <li>
+        Create a PR for your recipe
+        <pre>(Windows) <code>$ start https://github.com/joao-m-santos/receita/pull/new/my-new-recipe</code></pre>
+        <pre>(MacOS) <code>$ open https://github.com/joao-m-santos/receita/pull/new/my-new-recipe</code></pre>
+      </li>
+    </ol>
+  </div>
 </Layout>
+
+<script>
+  const toggle = document.getElementById('show-step-by-step') as HTMLSpanElement;
+  const container = document.getElementById('step-by-step-container') as HTMLDivElement;
+
+  let isContainerVisible = false;
+  toggle.addEventListener('click', () => {
+    container.style.display = isContainerVisible ? 'none' : 'block';
+    toggle.textContent = isContainerVisible ? 'Show step-by-step' : 'Hide step-by-step';
+    isContainerVisible = !isContainerVisible;
+  });
+</script>
 
 <style>
   .button-wrapper {
     text-align: center;
     margin-top: 3rem;
+  }
+
+  span.link {
+    font-size: 0.75rem;
+  }
+
+  .step-list > li {
+    margin-bottom: 1rem;
   }
 </style>

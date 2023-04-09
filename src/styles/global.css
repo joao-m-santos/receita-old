@@ -30,12 +30,13 @@ a {
   text-decoration: inherit;
 }
 
-a.link {
+.link {
+  cursor: pointer;
   color: var(--blue);
   font-weight: 500;
 }
 
-a.link:hover {
+.link:hover {
   text-decoration: underline;
 }
 
