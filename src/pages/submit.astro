@@ -29,7 +29,7 @@ import config from '../config.json';
     <span id="show-step-by-step" class="link">Show step-by-step</span>
   </p>
 
-  <div id="step-by-step-container" style="display: none">
+  <div id="step-by-step" style="display: none">
     <ol class="step-list">
       <li>
         Clone the repository
@@ -72,7 +72,7 @@ import config from '../config.json';
 
 <script>
   const toggle = document.getElementById('show-step-by-step') as HTMLSpanElement;
-  const container = document.getElementById('step-by-step-container') as HTMLDivElement;
+  const container = document.getElementById('step-by-step') as HTMLDivElement;
 
   let isContainerVisible = false;
   toggle.addEventListener('click', () => {
