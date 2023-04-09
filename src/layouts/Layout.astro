@@ -1,5 +1,8 @@
 ---
-import "../styles/global.css";
+import Footer from '@components/Footer.astro';
+import Search from '@components/Search.astro';
+import '../styles/global.css';
+import config from '../config.json';
 
 export interface Props {
   title: string;
@@ -15,30 +18,67 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Receita: {title}</title>
   </head>
   <body>
     <header>
       <a href="/" class="logo">
         <h1>Receita</h1>
       </a>
+      <div class="search">
+        <Search />
+      </div>
+      <div class="upload">
+        <a href="/upload" class="button">Upload recipe</a>
+      </div>
     </header>
-    <slot />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer href={config.footerHref} />
   </body>
 </html>
+
 <style>
+  body {
+    --content-width: 46rem; /* 736px */
+  }
+
   header {
-	display: grid;
-    grid-template-columns: 1fr minmax(46rem, auto) 1fr;
-    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
   }
 
   .logo {
+    color: var(--dark-blue);
+    padding-left: 2rem;
+    margin-right: auto;
+  }
+
+  .search {
+    width: var(--content-width);
+  }
+
+  .upload {
+    margin-left: auto;
+    padding-right: 2rem;
+    text-align: right;
   }
 
   h1 {
     font-family: var(--title-font-family);
     font-size: 2.5rem;
     font-weight: 700;
+  }
+
+  main {
+    width: var(--content-width);
+    margin: auto;
+    padding-top: 2rem;
   }
 </style>

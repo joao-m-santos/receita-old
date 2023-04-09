@@ -1,0 +1,25 @@
+---
+export interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<footer>
+  Created & maintained by <a href={href} target="_blank" class="link">joao</a>
+</footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .link {
+    color: var(--red);
+    font-weight: 700;
+  }
+</style>

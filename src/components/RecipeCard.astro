@@ -1,0 +1,80 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from '@components/Icon.astro';
+import type { TagKey } from '@/util/tag-list';
+import { formatDate } from '@/util/date';
+import Tag from './Tag.astro';
+
+export interface Props {
+  post: CollectionEntry<'recipes'>;
+}
+
+const { post } = Astro.props;
+const { title, tags, summary, lastUpdate } = post.data;
+
+const timestamp = `Updated at ${formatDate(lastUpdate)}`;
+---
+
+<li class="recipe-card">
+  <a href={`/recipes/${post.slug}`} class="link-wrapper">
+    <div class="timestamp">
+      <Icon name="ion:time-outline" />
+      {timestamp}
+    </div>
+
+    <h3 class="title">{title}</h3>
+
+    <div class="tags">
+      {tags.map((tag) => <Tag tag={tag} />)}
+    </div>
+
+    <p class="summary">{summary}</p>
+  </a>
+</li>
+
+<style>
+  .link-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .link-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+    left: -1rem;
+    z-index: -1;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-out;
+  }
+
+  .link-wrapper:hover::before {
+    background-color: var(--white);
+  }
+
+  .timestamp {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--blue-gray);
+  }
+
+  .title {
+  }
+
+  .tags {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .summary {
+    color: var(--blue-gray);
+  }
+</style>

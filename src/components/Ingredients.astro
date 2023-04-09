@@ -1,0 +1,27 @@
+---
+---
+
+<section class="ingredients">
+  <h3>Ingredients</h3>
+  <slot />
+</section>
+
+<style is:global>
+  .ingredients {
+    padding: 1rem;
+    background-color: var(--white);
+
+    border-radius: 0.25rem;
+  }
+
+  .ingredients > h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .ingredients > ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro';
+import tagList, { TagKey } from '../util/tag-list';
+
+export interface Props {
+  tag: TagKey;
+}
+
+const { tag } = Astro.props;
+const { icon, text, color } = tagList[tag];
+---
+
+<span class:list={['tag', `tag--${color}`]}>
+  <Icon name={icon} />
+  {text}
+</span>
+
+<style>
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 0.25rem 2px 2px;
+
+    font-family: var(--title-font-family);
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    border-radius: 2px;
+  }
+
+  .tag--blue {
+    color: var(--blue);
+    background-color: var(--light-blue);
+  }
+
+  .tag--green {
+    color: var(--green);
+    background-color: var(--light-green);
+  }
+
+  .tag--red {
+    color: var(--red);
+    background-color: var(--light-red);
+  }
+</style>
