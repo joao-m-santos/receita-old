@@ -14,7 +14,7 @@ Finally, submit a PR with your recipe files.
 
 ## To-do
 
-- [ ] Responsiveness
+- [x] ~~Responsiveness~~
 - [ ] Search
 - [ ] Add more tags
 - [ ] Automatic timestamps
