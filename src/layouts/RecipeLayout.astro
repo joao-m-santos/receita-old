@@ -105,4 +105,16 @@ const { frontmatter, slug } = Astro.props;
     font-size: 0.75rem;
     text-align: center;
   }
+
+  /* Mobile */
+  @media (width <= 768px) {
+    article {
+      grid-template-areas: 'title' 'subtext' 'summary' 'photo' 'ingredients' 'content' 'footer';
+      grid-template-columns: 1fr;
+    }
+
+    .ingredients {
+      margin-top: 1rem;
+    }
+  }
 </style>
