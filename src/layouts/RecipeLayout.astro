@@ -1,14 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from './Layout.astro';
 import { formatDate } from '@/util/date';
 
-const { frontmatter, slug } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
   <article>
     <h2>{frontmatter.summary}</h2>
-    <img src={`/assets/${slug}.png`} alt={frontmatter.title} />
+    <Image src={frontmatter.cover} width={720} height={540} alt={frontmatter.title} />
     <slot />
     <div class="footnote">
       Last updated: {formatDate(frontmatter.lastUpdate)}
