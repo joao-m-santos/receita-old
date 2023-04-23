@@ -14,8 +14,8 @@ import config from '../config.json';
       href="https://mdxjs.com/"
       target="_blank">MDX</a
     > file under <code>src/content/recipes/</code>. The filename will be the URL for the recipe. Additionally,
-    you must add a <code>.png</code> image file to
-    <code>public/assets/</code> with the same filename as the recipe file.
+    you must add a cover image file to
+    <code>src/assets/</code> with the same filename as the recipe file.
   </p>
   <p>
     You can use the template file <code>src/recipe.template.mdx</code> as a base for your new recipe.
@@ -45,13 +45,11 @@ import config from '../config.json';
       </li>
       <li>Edit the file with your recipe ingredients and steps, keeping the template structure</li>
       <li>
-        Add a picture with the same name as your recipe file as a <code>.png</code> file to the <code
-          >public/assets</code
-        > folder
+        Add a picture with the same name as your recipe to the <code>src/assets</code> folder
       </li>
       <li>
         Stage your files
-        <pre><code>$ git add public/assets/my-new-recipe.png src/content/recipes/my-new-recipe.mdx</code></pre>
+        <pre><code>$ git add src/assets/my-new-recipe.png src/content/recipes/my-new-recipe.mdx</code></pre>
       </li>
       <li>
         Commit your files
