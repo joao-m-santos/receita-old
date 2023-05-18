@@ -15,6 +15,7 @@ Finally, submit a PR with your recipe files.
 ## To-do
 
 - [x] ~~Responsiveness~~
+- [ ] Allow more image formats (.jpeg, etc.)
 - [ ] Search
 - [ ] Add more tags
 - [ ] Automatic timestamps
