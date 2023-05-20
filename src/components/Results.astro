@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import RecipeCard from '@components/RecipeCard.astro';
+
+export interface Props {
+  recipes: CollectionEntry<'recipes'>[];
+}
+
+const { recipes } = Astro.props;
+---
+
+<ul>
+  {recipes.length ? recipes.map((recipe) => <RecipeCard post={recipe} />) : <p>No results.</p>}
+</ul>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+</style>

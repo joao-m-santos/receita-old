@@ -16,7 +16,8 @@ Finally, submit a PR with your recipe files.
 
 - [x] ~~Responsiveness~~
 - [ ] Allow more image formats (.jpeg, etc.)
-- [ ] Search
+- [x] Search
+  - [ ] Improve matching algorithm (find by ingredients, close matches, etc.)
 - [ ] Add more tags
 - [ ] Automatic timestamps
 
