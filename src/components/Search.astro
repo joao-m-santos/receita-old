@@ -1,10 +1,29 @@
 ---
+const searchParams = Astro.url.searchParams.get('q')! || '';
 ---
 
-<input
-  type="search"
-  placeholder="Search for recipes, ingredients, anything..."
-/>
+<form id="form">
+  <input
+    id="search"
+    type="search"
+    value={searchParams}
+    placeholder="Search for recipes, ingredients, anything..."
+  />
+</form>
+
+<script>
+  const form = document.getElementById('form') as HTMLFormElement;
+  const search = document.getElementById('search') as HTMLInputElement;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const url = new URL(window.location.origin);
+    search.value === '' ? url.searchParams.delete('q') : url.searchParams.set('q', search.value);
+
+    window.location.replace(url);
+  });
+</script>
 
 <style>
   input {

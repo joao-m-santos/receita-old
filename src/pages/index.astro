@@ -2,23 +2,18 @@
 import { getCollection } from 'astro:content';
 
 import Layout from '@layouts/Layout.astro';
-import RecipeCard from '@components/RecipeCard.astro';
+import Results from '@components/Results.astro';
 
-const recipes = (await getCollection('recipes')).sort((a, b) =>
-  a.data.lastUpdate > b.data.lastUpdate ? -1 : 1
-);
+const query = Astro.url.searchParams.get('q')! || '';
+
+const recipes = (
+  await getCollection('recipes', (entry) =>
+    entry.data.title.toLowerCase().includes(query.toLowerCase())
+  )
+).sort((a, b) => (a.data.lastUpdate > b.data.lastUpdate ? -1 : 1));
 ---
 
 <Layout title="Home">
   <h2>Recent recipes</h2>
-  <ul>
-    {recipes.map((recipe) => <RecipeCard post={recipe} />)}
-  </ul>
+  <Results recipes={recipes} />
 </Layout>
-
-<style>
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-</style>
