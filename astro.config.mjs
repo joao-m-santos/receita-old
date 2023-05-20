@@ -6,9 +6,8 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   experimental: {
     assets: true,
-    hybridOutput: true,
   },
   integrations: [mdx()],
-  output: 'hybrid',
+  output: 'server',
   adapter: vercel(),
 });
